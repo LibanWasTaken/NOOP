@@ -1,40 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Registration = () => {
-  const container = document.querySelector(".container");
-  const pwShowHide = document.querySelectorAll(".showHidePw");
-  const pwFields = document.querySelectorAll(".password");
-  const signup = document.querySelector(".signup-link");
-  const login = document.querySelector(".login-link");
-
-  // pwShowHide.forEach((eyeIcon) => {
-  //   eyeIcon.addEventListener("click", () => {
-  //     pwFields.forEach((pwField) => {
-  //       if (pwField.type === "password") {
-  //         pwField.type = "text";
-
-  //         pwShowHide.forEach((icon) => {
-  //           icon.classList.replace("uil-eye-slash", "uil-eye");
-  //         });
-  //       } else {
-  //         pwField.type = "password";
-
-  //         pwShowHide.forEach((icon) => {
-  //           icon.classList.replace("uil-eye", "uil-eye-slash");
-  //         });
-  //       }
-  //     });
-  //   });
-  // });
-
-  // signup.addEventListener("click", () => {
-  //   container.classList.add("active");
-  // });
-
-  // login.addEventListener("click", () => {
-  //   container.classList.remove("active");
-  // });
+  const [view, setView] = useState(false);
 
   return (
     <Wrapper>
@@ -87,13 +55,22 @@ const Registration = () => {
                 </div>
                 <div class="input-field">
                   <input
-                    type="password"
+                    type={view ? "text" : "password"}
                     class="password"
                     placeholder="Confirm a password"
                     required
                   />
                   <i class="uil uil-lock icon"></i>
-                  <i class="uil uil-eye-slash showHidePw"></i>
+                  <i
+                    onClick={() => {
+                      view ? setView(false) : setView(true);
+                    }}
+                    class={
+                      view
+                        ? "uil uil-eye showHidePw"
+                        : "uil uil-eye-slash showHidePw"
+                    }
+                  ></i>
                 </div>
 
                 <div class="checkbox-text">
@@ -313,6 +290,10 @@ const Wrapper = styled.main`
 
   .login-signup a {
     margin-left: 5px;
+  }
+
+  .hidden {
+    display: none;
   }
 `;
 
