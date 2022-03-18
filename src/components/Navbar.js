@@ -271,10 +271,9 @@ Navbar
     .logging {
       margin-top: 2rem;
     }
-  }
-
-  .hidden {
-    display: none;
+    .hidden {
+      display: none;
+    }
   }
 `;
 
