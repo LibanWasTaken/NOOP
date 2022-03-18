@@ -57,7 +57,7 @@ const Navbar = () => {
               })}
             </ul>
           </div>
-          <ul className="logging">
+          <ul className={showLinks ? "logging" : "logging hidden"}>
             <li className="signIn">
               <a href="/login">Sign In</a>
             </li>
@@ -269,8 +269,12 @@ Navbar
   }
   @media screen and (max-width: 800px) {
     .logging {
-      /* display: none; */
+      margin-top: 2rem;
     }
+  }
+
+  .hidden {
+    display: none;
   }
 `;
 
